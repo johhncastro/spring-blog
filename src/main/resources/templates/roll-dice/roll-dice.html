@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Game</title>
+</head>
+<body>
+
+
+<h1>PICK NUMBER HERE TO WIN A MILLION DOLLARS</h1>
+<a href="/roll-dice/1">"number 1"</a>
+<br>
+<a href="/roll-dice/2">"number 2"</a>
+<br>
+<a href="/roll-dice/3">"number 3"</a>
+<br>
+<a href="/roll-dice/4">"number 4"</a>
+<br>
+<a href="/roll-dice/5">"number 5"</a>
+<br>
+<a href="/roll-dice/6">"number 6"</a>
+<br>
+<br>
+
+<div th:if="${number != null}">
+    <p>You guessed: <span th:text="${number}"></span> and the dice rolled a <span th:text="${randomNum}"></span>.
+    </p>
+
+    <p th:text="${message}"></p>
+</div>
+
+
+
+
+</body>
+</html>

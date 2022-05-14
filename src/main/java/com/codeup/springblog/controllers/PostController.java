@@ -4,13 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/post")
 public class PostController {
 
     @RequestMapping()
     @ResponseBody
     public String post(){
-        return "this is where you will see post";
+        return "this is where you will the form see post";
     }
 
     @GetMapping("/{id}")
@@ -22,7 +22,7 @@ public class PostController {
     @GetMapping("/create")
     @ResponseBody
     public String createPost(){
-        return "this is where you will make a request to create a post once the form is submitted";
+        return "this is where the form is created to submit a form";
     }
 
     @PostMapping("/create")
