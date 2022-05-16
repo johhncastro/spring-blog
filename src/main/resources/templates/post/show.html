@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="partials/partials.html :: head ('this is a single post ')"></head>
+<body>
+    <div th:replace="partials/partials.html :: boosted-nav"></div>
+    <h1 class="text-center">Here is the Post you Clicked on</h1>
+    <h2 th:text="${post.title}"></h2>
+    <p>Post Number : <span th:text="${post.id}"></span></p>
+    <p th:text="${post.body}"></p>
+<!--    this is script for boosted library similar to bootstrap-->
+    <div th:replace="partials/partials.html :: boosted-js"></div>
+</body>
+</html>

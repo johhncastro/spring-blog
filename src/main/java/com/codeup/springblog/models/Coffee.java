@@ -1,9 +1,25 @@
 package com.codeup.springblog.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "coffees")
 public class Coffee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+
+    //    ====================
+    @Column(nullable = false, length = 50)
     private String roast;
+//    =====================
+    @Column(nullable = false)
     private String origin;
+//    ======================
+    @Column(nullable = false)
     private String brand;
+
 
     public Coffee() {
     }
@@ -15,6 +31,12 @@ public class Coffee {
 
     public Coffee(String roast, String brand) {
         this.roast = roast;
+        this.brand = brand;
+    }
+
+    public Coffee(String roast, String origin, String brand) {
+        this.roast = roast;
+        this.origin = origin;
         this.brand = brand;
     }
 
@@ -42,4 +64,12 @@ public class Coffee {
         this.brand = brand;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Id
+    public Long getId() {
+        return id;
+    }
 }
