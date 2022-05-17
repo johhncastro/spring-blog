@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials.html :: head ('add a coffe')"></head>
+<head th:replace="partials/partials.html :: head ('add a coffee')"></head>
 <body>
+<div th:replace="partials/partials.html :: boosted-nav"></div>
 <fieldset>
     <legend>Add a Coffee</legend>
     <form action="/coffee/new" method="post">

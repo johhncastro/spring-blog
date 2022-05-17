@@ -3,13 +3,39 @@
     <head th:replace="partials/partials.html :: head ('home page!')"></head>
     <body>
     <div th:replace="partials/partials.html :: boosted-nav"></div>
-    <h1 class="text-center">Here are all current Post :)</h1>
-    <ul th:each="post : ${allPosts}">
-        <li>
-            <h2 th:text="${post.title}"></h2>
-            <p th:text="${post.body}"></p>
-        </li>
-    </ul>
+    <h1 class="text-center">Here are all current Post</h1>
+    <h2 class="text-center">This app is for posting blogs about whatever is on your mind!</h2>
+<!--    <ul th:each="post : ${allPosts}">-->
+<!--        <li>-->
+<!--            <h2 th:text="${post.title}"></h2>-->
+<!--            <p th:text="${post.body}"></p>-->
+<!--        </li>-->
+<!--    </ul>-->
+    <div class="w-100 d-flex justify-content-center">
+    <div class="w-75 d-flex flex-wrap">
+        <div class="card w-25 mb-3" th:each="post : ${allPosts}">
+            <h5 class="card-header" th:text="${post.title}"></h5>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        See Post!
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 th:text="${post.title}"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" th:text="${post.body}"></div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+
     <div th:replace="partials/partials.html :: boosted-js"></div>
 </body>
 </html>

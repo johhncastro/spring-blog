@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials.html :: head ('add a coffee')"></head>
+<body>
+    <h1 class="text-center">All Coffees</h1>
+    <div th:if="${coffees}">
+        <ul>
+            <li th:each="coffee : ${coffees}">
+                Roast:  <span th:text="${coffee.brand}"></span>,
+                Origin:  <span th:text="${coffee.origin}"></span>,
+                Roast:  <span th:text="${coffee.roast}"></span>,
+            </li>
+        </ul>
+    </div>
+    <div th:replace="partials/partials.html :: boosted-js"></div>
+</body>
+</html>

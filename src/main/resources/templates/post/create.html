@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials.html :: head ('Create a post here!')"></head>
+<body>
+<div th:replace="partials/partials.html :: boosted-nav"></div>
+<div class="d-flex justify-content-center">
+<fieldset>
+    <legend class="text-center mt-5">Add a Post</legend>
+    <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+            <form action="/post/create" method="post">
+                <label for="title">Title:</label>
+                <p></p>
+                <input type="text" id="title" name="title">
+                <label for="body">Description:</label>
+                <p></p>
+                <input type="text" id="body" name="body">
+                <p></p>
+                <input type="submit" class="btn btn-primary" value="submit">
+            </form>
+        </div>
+    </div>
+</fieldset>
+</div>
+
+<div th:replace="partials/partials.html :: boosted-js" ></div>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
+import com.codeup.springblog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,14 @@ import java.util.List;
 @RequestMapping("/post")
 public class PostController {
 
+    private final PostRepository postDao;
 
+    public PostController(PostRepository postDao) {
+        this.postDao = postDao;
+    }
+
+
+//
     public List<Post> generatePosts(){
         List<Post> allPosts = new ArrayList<>();
         Post post1 = new Post(1, "hello", "this is a cool world");
@@ -26,34 +34,28 @@ public class PostController {
 
     @GetMapping
     public String allPosts(Model model){
-        List<Post> allPosts = generatePosts();
+        List<Post> allPosts = postDao.findAll();
         model.addAttribute("allPosts", allPosts);
         return "post/index";
     }
 
     @GetMapping("/{id}")
     public String onePost(@PathVariable long id, Model model){
-        List<Post> allPosts = generatePosts();
-        Post post = null;
-        for (Post allPost : allPosts) {
-            if (allPost.getId() == id) {
-                post = allPost;
-            }
-        }
-        model.addAttribute("post", post);
+        model.addAttribute("post", postDao.getById(id));
         return "post/show";
     }
 
     @GetMapping("/create")
-    @ResponseBody
     public String createPost(){
-        return "this is where the form is created to submit a form";
+        return "post/create";
     }
 
+
     @PostMapping("/create")
-    @ResponseBody
-    public String createPostPost(){
-        return "this is where you will make a request to create an album once the form is submitted";
+    public String addPost(@RequestParam(name = "title")String title,@RequestParam(name="body")String body){
+        Post post = new Post(title,body);
+        postDao.save(post);
+        return "redirect:/post";
     }
 
 

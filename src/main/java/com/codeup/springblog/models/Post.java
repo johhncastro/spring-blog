@@ -1,13 +1,28 @@
 package com.codeup.springblog.models;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.persistence.*;
+
+@Entity
 public class Post {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false, length = 150)
     private String title;
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
     public Post (){}
 
-    public Post(long id,String title, String body) {
+    public Post(String title, String body) {
+        this.title = title;
+        this.body = body;
+    }
+
+    public Post(long id, String title, String body) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -36,4 +51,5 @@ public class Post {
     public void setBody(String body) {
         this.body = body;
     }
+
 }
