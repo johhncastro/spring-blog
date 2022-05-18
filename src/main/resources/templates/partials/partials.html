@@ -35,6 +35,26 @@
     background-image: none !important;
     border: 0 #42A5F5 !important;
     }
+    /*a:hover{*/
+    /*    color: black !important;*/
+    /*}*/
+    /*a:focus{*/
+    /*    color: black;*/
+    /*}*/
+    /*a:active{*/
+    /*    color: black;*/
+    /*}*/
+    /*a{*/
+    /*    color: lightgreen;*/
+    /*}*/
+    .posted{
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    }
+    .light-green-bottom{
+        border-bottom-width: 5px;
+        border-bottom-style: solid;
+        border-bottom-color: lightgreen;
+    }
     </style>
 </head>
 <body>
@@ -80,7 +100,7 @@
 
 
 <!--    below is a BOOSTED nav bar fragment-->
-    <nav th:fragment="boosted-nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav th:fragment="boosted-nav" class="navbar navbar-expand-lg navbar-dark bg-dark light-green-bottom">
         <div class="container-fluid">
                 <ul class="navbar-nav d-flex flex-row justify-content-around w-100">
                     <li class="nav-item">
