@@ -36,21 +36,57 @@ public class PostController {
         return "post/show";
     }
 
-    @GetMapping("/create")
-    public String createPost(){
+//    @GetMapping("/create")
+//    public String createPost(){
+//
+//        return "post/create";
+//    }
 
+
+//    @PostMapping("/create")
+//    public String addPost(@RequestParam(name = "title")String title,@RequestParam(name="body")String body){
+//        User user = userDao.getById(4l);
+//        Post post = new Post(title,body,user);
+//        postDao.save(post);
+//        return "redirect:/post";
+//    }
+    @GetMapping("/create")
+    public String viewCreatePost(Model model){
+        model.addAttribute("post", new Post());
         return "post/create";
     }
-
-
     @PostMapping("/create")
-    public String addPost(@RequestParam(name = "title")String title,@RequestParam(name="body")String body){
-        User user = userDao.getById(2l);
-        Post post = new Post(title,body,user);
+    public String createPost(@ModelAttribute Post post){
+        User user = userDao.getById(4l);
+        post.setUser(user);
         postDao.save(post);
+
         return "redirect:/post";
     }
 
+
+    @GetMapping("/{id}/edit")
+    public String showEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("post", postDao.getById(id));
+        return "post/edit";
+    }
+    @PostMapping("/{id}/edit")
+    public String submitEdit(@ModelAttribute Post post) {
+        User user = userDao.getById(4l);
+        post.setUser(user);
+        postDao.save(post);
+        return "redirect:/post";
+
+    }
+
+//    @PostMapping("/edit")
+//    public String editPost(@RequestParam(name="title")String title, @RequestParam(name="body") String body, @RequestParam(name="id") long id) {
+//        Post post = postDao.getById(id);
+//        post.setTitle(title);
+//        post.setBody(body);
+//        postDao.save(post);
+//        return "redirect:/posts/" + id;
+//    }
 
 
 }

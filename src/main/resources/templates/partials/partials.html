@@ -24,6 +24,11 @@
     background-color: lightgreen;
     border: black;
     }
+    .nav-link:active,
+    .nav-link:hover,
+    .nav-link:focus{
+        color: lightgreen !important;
+    }
 
     .btn.btn-primary:active,
     .btn.btn-primary:hover,
@@ -35,21 +40,23 @@
     background-image: none !important;
     border: 0 #42A5F5 !important;
     }
-    /*a:hover{*/
-    /*    color: black !important;*/
-    /*}*/
-    /*a:focus{*/
-    /*    color: black;*/
-    /*}*/
-    /*a:active{*/
-    /*    color: black;*/
-    /*}*/
-    /*a{*/
-    /*    color: lightgreen;*/
-    /*}*/
-    .posted{
-        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    a:hover{
+        color: lightgreen !important;
     }
+    a:focus{
+        color: lightgreen;
+    }
+    a:active{
+        color: lightgreen;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    /*.posted{*/
+    /*    box-shadow: lightgreen 0px 20px 30px -10px;*/
+    /*}*/
     .light-green-bottom{
         border-bottom-width: 5px;
         border-bottom-style: solid;
@@ -115,6 +122,19 @@
                 </ul>
             </div>
     </nav>
+
+<footer class="bg-dark mt-auto" th:fragment="boosted-footer">
+    <!-- Terms & Conditions -->
+    <span class="visually-hidden">Terms and conditions</span>
+    <div class="w-100 px-2 px-md-4 py-3 navbar-dark">
+        <ul class="navbar-nav d-flex flex-md-row flex-wrap gap-md-3 gap-4">
+            <li class="text-white fw-bold">© SpringBlog 2022</li>
+            <li><a class="nav-link p-0" href="#">Jobs</a></li>
+            <li><a class="nav-link p-0" href="#">Advertise</a></li>
+            <li><a class="nav-link p-0" href="#">Terms & Conditions</a></li>
+        </ul>
+    </div>
+</footer>
 
 
 </body>

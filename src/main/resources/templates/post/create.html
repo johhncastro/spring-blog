@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/partials.html :: head ('Create a post here!')"></head>
-<body>
+<body class="d-flex flex-column min-vh-100" style="background-color: black">
 <div th:replace="partials/partials.html :: boosted-nav"></div>
 <div class="d-flex justify-content-center">
 <fieldset>
@@ -22,7 +22,7 @@
     </div>
 </fieldset>
 </div>
-
+<div th:replace="partials/partials.html :: boosted-footer"></div>
 <div th:replace="partials/partials.html :: boosted-js" ></div>
 </body>
 </html>
