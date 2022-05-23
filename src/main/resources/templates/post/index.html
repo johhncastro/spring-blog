@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--    below is a partial for my head-->
     <head th:replace="partials/partials.html :: head ('home page!')"></head>
     <body class="d-flex flex-column min-vh-100" style="background-color: #000;">
+
+<!--    below is a partial for the navbar-->
     <div th:replace="partials/partials.html :: boosted-nav"></div>
+<!--    this is the header on the index page-->
     <h1 class="text-center" style="color: white">Here are all current Post</h1>
     <h2 class="text-center" style="color: white">This app is for posting blogs about whatever is on your mind!</h2>
+<!--below is a loop for all of the cards-->
     <div class="w-100 d-flex justify-content-center">
          <div class="w-75">
              <div style="background-color: black; color: white" class="card posted mb-3" th:each="post : ${allPosts}">
@@ -16,6 +21,9 @@
                         <div class="h2 m-0" th:text="'E-mail: '+${post.getUser().getEmail()}"></div>
                     </div>
                 </div>
+                <div>
+                    <button name="edit" th:data-id="${post.getId()}" class="btn btn-primary flex-grow-1 edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
             </div>
             </div>
             <div class="card-body">
@@ -23,13 +31,22 @@
             <p class="card-text" th:text="${post.body}"></p>
             </div>
              <div style="background-color: black;" class="card-footer">
-                <button href="#" class="btn btn-primary"><i class="fa fa-gittip"></i> Like</button>
-                <button href="#" class="btn btn-primary"><i class="fa fa-comment"></i> Comment</button>
-                <button href="#" class="btn btn-primary"><i class="fa fa-mail-forward"></i> Share</button>
+                <button href="#" class="btn btn-primary"><i class="fa-solid fa-heart"></i> Like</button>
+                <button href="#" class="btn btn-primary"><i class="fa-solid fa-comment"></i>Comment</button>
+                <button href="#" class="btn btn-primary"><i class="fa-solid fa-share-from-square"></i> Share</button>
              </div>
           </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        // alert("am i insane");
+        $(".edit").on("click", function (){
+            // alert("you clicked a button !!!")
+            let postId = $(this).attr("data-id")
+            window.location = "/post/" + postId + "/edit";
+        });
+    </script>
     <div th:replace="partials/partials.html :: boosted-footer"></div>
     <div th:replace="partials/partials.html :: boosted-js"></div>
 </body>
