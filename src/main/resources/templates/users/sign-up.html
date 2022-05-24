@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Sign up</title>
-</head>
-<body>
-<h1>Create an account</h1>
-<form th:action="@{/sign-up}" method="POST" th:object="${user}">
-    <label for="username">Username</label>
-    <input id="username" th:field="*{username}" />
-
-    <label for="email">Email</label>
-    <input id="email" th:field="*{email}" />
-
-    <label for="password">Password</label>
-    <input id="password" type="password" th:field="*{password}" />
-
-    <input value="Sign me up!" type="submit" />
-</form>
+<head th:replace="partials/partials.html :: head (SIGNUP)"></head>
+<body class="d-flex flex-column min-vh-100">
+<video th:replace="partials/partials.html :: video-bg"></video>
+<a href="/"><h1 style="color: white" class="text-center">SIGN UP</h1></a>
+<div class="d-flex justify-content-center ">
+    <div class="card text-center mt-5 justify-content-center" style="width: 25rem;background-color: rgba(0,0,0,0.4); color: white">
+        <div class="card-body" style="background-color: rgba(0,0,0,0.4)">
+            <form th:action="@{/sign-up}" method="post" th:object="${user}">
+                <label for="username">USERNAME:</label>
+                <p></p>
+                <input id="username" th:field="*{username}" />
+                <p></p>
+                <label for="email">EMAIL:</label>
+                <p></p>
+                <input id="email" th:field="*{email}">
+                <p></p>
+                <label for="password">PASSWORD:</label>
+                <p></p>
+                <input id="password" type="password" th:field="*{password}" />
+                <p></p>
+                <a href="/login">SIGN IN </a>WITH ACCOUNT
+                <p></p>
+                <input type="submit" class="btn btn-primary justify-content-center" value="SIGN UP">
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/partials.html :: boosted-js"></div>
+<div th:replace="partials/partials.html :: boosted-footer"></div>
 </body>
 </html>

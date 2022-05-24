@@ -2,38 +2,49 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/partials.html :: head (Login)"></head>
 <body class="d-flex flex-column min-vh-100">
-<div class="d-flex justify-content-around align-content-center flex-row" style="background-color: black">
-    <h1><a href="#" style="color: white">FAQ</a></h1>
-    <h1 style="color: white">SpringBlog</h1>
-    <h1><a href="https://github.com/johhncastro" style="color: white">DEV</a></h1>
-</div>
-<video src="https://static.videezy.com/system/resources/previews/000/000/117/original/CartridgeGlitch.mp4" muted loop autoplay style=" width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;"></video>
-<div class="d-flex flex-column justify-content-center card-body">
-<h1 class="align-content-center mt-5" style="color: white">Log In</h1>
-<div style="color: indianred" th:if="${param.error}">
-    Invalid Username and Password.
-</div>
-<div style="color: lightgreen" th:if="${param.logout}">
-    You have been logged out.
-</div>
+    <video th:replace="partials/partials.html :: video-bg"></video>
+    <a href="/"><h1 style="color: white" class="text-center">SpringBlog</h1></a>
+
+<!--    <h1 class="text-center mt-5" style="color: white">Log In</h1>-->
+<!--    <div style="color: indianred" th:if="${param.error}">-->
+<!--        Invalid Username and Password.-->
+<!--    </div>-->
+<!--    <div style="color: lightgreen" th:if="${param.logout}">-->
+<!--        You have been logged out.-->
+<!--    </div>-->
 
 
-<form style="color: white" class="align-content-center" th:action="@{/login}" method="post">
-    <label for="username">Username</label>
-    <input id="username" name="username" type="text" />
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" />
-    <input type="submit" value="Log In" />
-</form>
-</div>
+<!--<form style="color: white" class="align-content-center" th:action="@{/login}" method="post">-->
+<!--    <label for="username">Username</label>-->
+<!--    <input id="username" name="username" type="text" />-->
+<!--    <label for="password">Password</label>-->
+<!--    <input id="password" name="password" type="password" />-->
+<!--    <input type="submit" value="Log In" />-->
+<!--</form>-->
+    <div class="d-flex justify-content-center ">
+    <div class="card text-center mt-5 justify-content-center" style="width: 25rem;background-color: rgba(0,0,0,0.4); color: white">
+        <div class="card-body" style="background-color: rgba(0,0,0,0.4)">
+            <form th:action="@{/login}" method="post" >
+                <label for="username">USERNAME:</label>
+                <p></p>
+                <input id="username" name="username" type="text" />
+                <p></p>
+                <label for="password">PASSWORD:</label>
+                <p></p>
+                <input id="password" name="password" type="password" />
+                <p></p>
+                <input type="submit" class="btn btn-primary justify-content-center" value="SIGN IN">
+                <p></p>
+                <div style="color: indianred" th:if="${param.error}">
+                    Invalid Username and Password.
+                </div>
+                <div style="color: lightgreen" th:if="${param.logout}">
+                    You have been logged out.
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
 
 <div th:replace="partials/partials.html :: boosted-js"></div>
 <div th:replace="partials/partials.html :: boosted-footer"></div>
