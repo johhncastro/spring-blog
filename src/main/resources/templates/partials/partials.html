@@ -63,13 +63,13 @@
         border-bottom-style: solid;
         border-bottom-color: lightgreen;
     }
+    .logout{
+        right: 10px;
+        top: 20px;
+    }
     </style>
 </head>
 <body>
-
-<div th:fragment="header">
-        <h1>l000000l</h1>
-    </div>
 
 
 
@@ -121,6 +121,9 @@
                         <a class="nav-link" href="/post/create">Create</a>
                     </li>
                 </ul>
+                <form th:action="@{/logout}" th:method="post">
+                    <button class="btn btn-primary position-fixed logout" style="margin-top: 8px">Logout</button>
+                </form>
             </div>
     </nav>
 
